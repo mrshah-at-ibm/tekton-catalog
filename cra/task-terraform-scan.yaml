@@ -96,6 +96,12 @@ spec:
             set -x +e
           fi
 
+          echo "Env variables:"
+          echo "$(env)"
+
+          echo "Env variables:"
+          env
+
           REPO_DIR_PATH="/artifacts/$(params.directory-name)"
           TOOLCHAIN_CONFIG=$(cat /config/toolchain.json)
           TOOLCHAIN_REGION=$(echo ${TOOLCHAIN_CONFIG} | jq -r '.region_id' | awk -F: '{print $3}')
