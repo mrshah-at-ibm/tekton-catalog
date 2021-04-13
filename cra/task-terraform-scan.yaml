@@ -13,8 +13,6 @@ spec:
     - name: branch
       description: the branch
       default: master
-    - name: commit-id
-      description: git commit id
     - name: tf-dir
       description: the directory where the terraform main entry file is found
       default: ""
@@ -150,7 +148,7 @@ spec:
           if [[ "$(params.policy-config-json)" == "" ]];
           then
             node /usr/src/index.js --git_token "NA" --repository $(params.repository) --gitClonedDir $REPO_DIR_PATH \
-              --INPUT_TF_DIR $(params.tf-dir) --revision $(params.branch) --commitid $(params.commit-id) --pipelinerunid $PIPELINE_RUN_ID --prnumber "NA" --LOG_LEVEL $LOG_LEVEL --silent 1
+              --INPUT_TF_DIR $(params.tf-dir) --revision $(params.branch) --commitid "NA" --pipelinerunid $PIPELINE_RUN_ID --prnumber "NA" --LOG_LEVEL $LOG_LEVEL --silent 1
           else
             node /usr/src/index.js --policyConfig $(params.policy-config-json) --git_token "NA" --repository $(params.repository) --gitClonedDir $REPO_DIR_PATH \
               --INPUT_TF_DIR $(params.tf-dir) --revision $(params.branch) --commitid "NA" --pipelinerunid $PIPELINE_RUN_ID --prnumber "NA" --LOG_LEVEL $LOG_LEVEL --silent 1
